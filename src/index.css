@@ -1,0 +1,18 @@
+@import "tailwindcss";
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@theme {
+  --color-myPink: #ff6392;
+  --color-myBlue: #5aa9e6;
+  --color-myLightBlue: #7fc8f8;
+  /* --color-myWhite: #f9f9f9; */
+  --color-myWhite: #f0efef;
+
+  --color-myYellow: #ffe45e;
+}
