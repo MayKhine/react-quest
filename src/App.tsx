@@ -3,7 +3,7 @@ import { Logo } from "./layout/Logo"
 export const App = () => {
   const navigate = useNavigate()
   return (
-    <div className="w-full h-full p-10 bg-myWhite">
+    <div className="w-full p-10 bg-myWhite min-h-full h-auto">
       <Logo />
       <div className="w-full flex flex-row flex-wrap gap-4">
         <div
