@@ -22,22 +22,20 @@ export const App = () => {
         >
           Shopping Cart
         </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/useprevioushook")
+          }}
+        >
           UsePrevious Hook
         </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
-          Todo List Manager
-        </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
-          Todo List Manager
-        </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
-          Todo List Manager
-        </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
-          Todo List Manager
-        </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/todolist")
+          }}
+        >
           Todo List Manager
         </div>
         <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
