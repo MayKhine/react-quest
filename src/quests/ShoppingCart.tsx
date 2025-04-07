@@ -36,6 +36,11 @@ export const ShoppingCart = () => {
     })
     setItems(updatedItems)
   }
+  let total = 0
+
+  items.forEach((item) => {
+    total = total + item.quantity
+  })
 
   return (
     <div className="w-full p-10 bg-myWhite min-h-full h-auto">
@@ -80,10 +85,7 @@ export const ShoppingCart = () => {
             and proper handling of user interactions in React.
           </p>
           <p>Requirements:</p>
-          <li>
-            Display the list of items with their quantities using the provided
-            markup.
-          </li>
+          <li>Display the list of items with their quantities</li>
           <li>
             Implement an addItem function that increases the quantity of an item
             when the + button is clicked.
@@ -94,15 +96,17 @@ export const ShoppingCart = () => {
             quantities.
           </li>
           <li>
-            Show an alert when user click on the - button when quantity is 0.{" "}
+            Show an alert when user click on the - button when quantity is 0.
           </li>
-          <li>
-            Display the total number of items in the cart using the
-            data-testid="total" element.
-          </li>
+          <li>Display the total number of items in the cart.</li>
         </div>
         <div className="w-full bg-myLightBlue p-5 rounded-md flex flex-col justify-center items-center gap-4">
           <div className="flex flex-col gap-4 ">
+            <div className="flex align-middle justify-center bg-myWhite p-2 min-w-50 rounded-md gap-2">
+              <div>Total quantities: </div>
+              <div className="font-bold">{total}</div>
+            </div>
+
             {items.map((item) => {
               return (
                 <div className="flex gap-4 items-center">
