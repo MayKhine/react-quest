@@ -8,6 +8,7 @@ import { ShoppingCart } from "./quests/ShoppingCart.tsx"
 import { UsePreviousHook } from "./quests/UsePreviousHook.tsx"
 import { TodoList } from "./quests/TodoList.tsx"
 import { Memo } from "./quests/Memo.tsx"
+import { ReactSuspense } from "./quests/ReactSuspense.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/useprevioushook" element={<UsePreviousHook />}></Route>
         <Route path="/todolist" element={<TodoList />}></Route>
         <Route path="/memo" element={<Memo />}></Route>
+        <Route path="/reactsuspense" element={<ReactSuspense />}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>

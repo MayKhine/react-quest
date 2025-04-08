@@ -46,6 +46,14 @@ export const App = () => {
         >
           Memo
         </div>
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/reactsuspense")
+          }}
+        >
+          React Suspense
+        </div>
         <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
           Todo List Manager
         </div>
