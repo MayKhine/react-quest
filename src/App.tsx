@@ -38,8 +38,13 @@ export const App = () => {
         >
           Todo List Manager
         </div>
-        <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
-          Todo List Manager
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/memo")
+          }}
+        >
+          Memo
         </div>
         <div className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer">
           Todo List Manager

@@ -7,6 +7,7 @@ import { CountCompnent } from "./quests/CountComponent.tsx"
 import { ShoppingCart } from "./quests/ShoppingCart.tsx"
 import { UsePreviousHook } from "./quests/UsePreviousHook.tsx"
 import { TodoList } from "./quests/TodoList.tsx"
+import { Memo } from "./quests/Memo.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/shoppingcart" element={<ShoppingCart />}></Route>
         <Route path="/useprevioushook" element={<UsePreviousHook />}></Route>
         <Route path="/todolist" element={<TodoList />}></Route>
+        <Route path="/memo" element={<Memo />}></Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>
