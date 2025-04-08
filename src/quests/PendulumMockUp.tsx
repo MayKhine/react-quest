@@ -84,26 +84,26 @@ export const PendulumMockUp = () => {
                 gap: "1rem",
                 display: "flex",
                 flexDirection: "column",
-                aspectRatio: "1",
               }}
             >
               <div
                 style={{
                   position: "relative",
                   overflow: "hidden", // Ensures only one image is shown at a time
+                  width: "100%",
+                  aspectRatio: "1",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    // flexDirection: "column",
+                    flexDirection: "column",
                     transition: "transform 0.5s ease", // Smooth sliding transition
-                    transform: `translateX(-${contentIndex * 100}%)`, // Adjusting based on the content index
-                    // transform: `translateY(-${contentIndex * 100}%)`, // Adjusting based on the content index for vertical movement
+                    // transform: `translateX(-${contentIndex * 100}%)`, // Adjusting based on the content index
+                    transform: `translateY(-${contentIndex * 20}%)`, // Adjusting based on the content index for vertical movement
                   }}
                 >
                   {imagesArr.map((img, index) => {
-                    console.log("img: ", index)
                     return (
                       <div
                         key={index}
@@ -112,7 +112,11 @@ export const PendulumMockUp = () => {
                         <img
                           src={img}
                           alt={`Img ${index}`}
-                          style={{ width: "100%", height: "auto" }}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
                         />
                       </div>
                     )
