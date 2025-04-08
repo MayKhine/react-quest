@@ -10,6 +10,8 @@ import { TodoList } from "./quests/TodoList.tsx"
 import { Memo } from "./quests/Memo.tsx"
 import { ReactSuspense } from "./quests/ReactSuspense.tsx"
 import { ImageCarousel } from "./quests/ImageCarousel.tsx"
+import { Timer } from "./quests/Timer.tsx"
+import { TrafficLight } from "./quests/TrafficLight.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +23,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/useprevioushook" element={<UsePreviousHook />}></Route>
         <Route path="/todolist" element={<TodoList />}></Route>
         <Route path="/imagecarousel" element={<ImageCarousel />}></Route>
+        <Route path="/timer" element={<Timer />}></Route>
+        <Route path="/trafficlight" element={<TrafficLight />}></Route>
 
         <Route path="/memo" element={<Memo />}></Route>
         <Route path="/reactsuspense" element={<ReactSuspense />}></Route>

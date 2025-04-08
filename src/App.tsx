@@ -47,6 +47,22 @@ export const App = () => {
         >
           Image Carousel
         </div>
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/timer")
+          }}
+        >
+          Timer
+        </div>
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/trafficlight")
+          }}
+        >
+          Traffic Light
+        </div>
 
         <div
           className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
