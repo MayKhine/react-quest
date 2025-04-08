@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Logo } from "../layout/Logo"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import { PopUp } from "../layout/PopUp"
@@ -22,6 +22,36 @@ export const TodoList = () => {
     setTodoList([...todoList, newTodo])
     setTodoText("")
   }
+
+  const deleteTodo = (id: number) => {
+    const updatedList = todoList.filter((item) => {
+      if (item.id !== id) {
+        return item
+      }
+    })
+    setTodoList(updatedList)
+  }
+
+  const completeTodo = (id: number) => {
+    const updatedList = todoList.map((item) => {
+      if (item.id === id) {
+        return { ...item, complete: !item.complete }
+      }
+      return item
+    })
+    setTodoList(updatedList)
+  }
+
+  const todoRemaining = useMemo(() => {
+    const result = todoList.reduce((acc, cur) => {
+      if (!cur.complete) {
+        return acc + 1
+      }
+      return 0
+    }, 0)
+    return result
+  }, [todoList])
+
   return (
     <div className="w-full p-10 bg-myWhite min-h-full h-auto">
       {popUp && (
@@ -30,7 +60,25 @@ export const TodoList = () => {
             setPopUp(!popUp)
           }}
         >
-          <div> Cannot add empty string</div>
+          <div
+            className="bg-myYellow w-3/5 p-5  rounded-md"
+            onClick={(e) => {
+              e.stopPropagation()
+            }}
+          >
+            <div className="flex justify-end">
+              <IoIosCloseCircleOutline
+                size={30}
+                className="cursor-pointer "
+                onClick={() => {
+                  setPopUp(false)
+                }}
+              />
+            </div>
+            <div className="p-5 flex justify-center">
+              <p> Can't add todo when input is empty.</p>
+            </div>
+          </div>
         </PopUp>
       )}
       <Logo />
@@ -59,12 +107,12 @@ export const TodoList = () => {
             list.
           </li>
           <li>Display the total number of incomplete todos.</li>
-          <li>The add button should be disabled when the input is empty.</li>
+          <li>Alert user when the input is empty.</li>
         </div>
         <div className="w-full bg-myLightBlue p-5 rounded-md flex flex-col justify-center items-center gap-4">
           <div className="w-full flex gap-4 justify-center">
             <input
-              className="bg-myWhite p-2 min-w-50 rounded-md "
+              className="bg-myWhite p-2 min-w-100 rounded-md "
               type="text"
               onChange={(e) => {
                 setTodoText(e.target.value)
@@ -74,31 +122,44 @@ export const TodoList = () => {
             <button
               className="bg-myYellow hover:bg-myYellow/80 p-2 rounded-md cursor-pointer"
               onClick={addTodo}
+              // disabled={todoText.length == 0 ? true : false}
             >
               Add Todo
             </button>
           </div>
-          <div>0 items remaining</div>
-          <div className="bg-myWhite  p-2 w-200 rounded-md">
-            {todoList.map((todo) => {
-              return (
-                <div className="flex flex-row bg-myWhite p-2 justify-between items-start w-full gap-5">
-                  {/* <div className="flex flex-row gap-5 bg-pink-400"> */}
-                  <div className="w-7 h-7 flex flex-col justify-center items-center">
-                    <input type="checkbox" className="cursor-pointer w-5 h-5" />
+          <div>{todoRemaining} items remaining</div>
+          {todoList.length > 0 && (
+            <div className="bg-myWhite  p-2 w-200 rounded-md">
+              {todoList.map((todo, index) => {
+                return (
+                  <div
+                    key={todo.id + index}
+                    className="flex flex-row bg-myWhite p-2 justify-between items-start w-full gap-5"
+                  >
+                    <div className="w-7 h-7 flex flex-col justify-center items-center">
+                      <input
+                        type="checkbox"
+                        className="cursor-pointer w-5 h-5"
+                        onClick={() => {
+                          completeTodo(todo.id)
+                        }}
+                      />
+                    </div>
+                    <div className="w-full overflow-wrap min-h-7 flex items-center ">
+                      {todo.todo}
+                    </div>
+                    <IoIosCloseCircleOutline
+                      size={30}
+                      className="cursor-pointer min-w-5"
+                      onClick={() => {
+                        deleteTodo(todo.id)
+                      }}
+                    />
                   </div>
-                  <div className="w-full overflow-wrap min-h-7 flex items-center ">
-                    {todo.todo}
-                  </div>
-                  <IoIosCloseCircleOutline
-                    size={30}
-                    className="cursor-pointer min-w-5"
-                  />
-                  {/* </div> */}
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
