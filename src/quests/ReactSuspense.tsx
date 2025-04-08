@@ -25,7 +25,14 @@ export const ReactSuspense = () => {
 
 const UserProfile: FC = () => {
   const data = userResource.read()
-  return <div>User data {data.name}</div>
+  return (
+    <div>
+      User data
+      <div>name: {data.name}</div>
+      <div>age: {data.age}</div>
+      <div>weight: {data.weight}</div>
+    </div>
+  )
 }
 
 const fetchUser = async () => {

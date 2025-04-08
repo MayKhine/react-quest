@@ -4,12 +4,14 @@ import { Logo } from "../layout/Logo"
 export const Memo = () => {
   const [count, setCount] = useState(0)
 
-  const subComp2Onclick2 = useCallback(() => console.log("clicky"), [])
-
   const content = useMemo(() => {
-    return <SubComponent2 onClick={() => console.log("clicky")} />
+    return <SubComponent2 onClick={() => console.log("clicky using useMemo")} />
   }, [])
 
+  const subComp2Onclick2 = useCallback(
+    () => console.log("clicky using memo()"),
+    []
+  )
   return (
     <div className="w-full p-10 bg-myWhite min-h-full h-auto">
       <Logo />
@@ -26,16 +28,26 @@ export const Memo = () => {
         </div>
         <div className="w-full bg-myLightBlue p-5 rounded-md flex flex-col justify-center items-center gap-4">
           <button
-            className="bg-myWhite p-5"
+            className="bg-myYellow hover:bg-myYellow/50 p-2 min-w-50 text-center rounded-md "
             onClick={() => {
               setCount(count + 1)
             }}
           >
-            {count}
+            Click me + {count}
           </button>
-          <SubComponent1 count={count} />
-          {content}
-          {/* <MemoSubComponent2 onClick={subComp2Onclick2} /> */}
+          <div className="bg-myWhite p-2 min-w-50 text-center rounded-md ">
+            <SubComponent1 count={count} />
+          </div>
+          <div className="bg-myWhite p-2 min-w-50 text-center rounded-md ">
+            Memoized SubComponent 2 using useMemo()
+            <div className="cursor-pointer bg-myYellow">{content} </div>
+          </div>
+          <div className="bg-myWhite p-2 min-w-50 text-center rounded-md ">
+            Memoized SubComponent 2 using memo()
+            <div className="cursor-pointer bg-myYellow">
+              <MemoSubComponent2 onClick={subComp2Onclick2} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -46,7 +58,7 @@ type SubComponent1Props = {
   count: number
 }
 const SubComponent1: FC<SubComponent1Props> = ({ count }) => {
-  console.log("SUb compoentn 1 here")
+  console.log("SubComponent1 here")
 
   return <div> Component 1: {count}</div>
 }
@@ -54,8 +66,12 @@ type SubComponent2 = {
   onClick: () => void
 }
 const SubComponent2: FC<SubComponent2> = ({ onClick }) => {
-  console.log("SUb compoentn 2 here")
-  return <div onClick={onClick}> Component 2: Hello </div>
+  console.log("SubComponent 2 here")
+  return (
+    <div onClick={onClick}>
+      SubComponent 2: click me will console.log('clicky'){" "}
+    </div>
+  )
 }
 
 const MemoSubComponent2 = memo(SubComponent2)
