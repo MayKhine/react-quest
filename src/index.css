@@ -17,7 +17,12 @@ body,
 
   --color-myYellow: #ffe45e;
 }
+
 .slides {
   display: flex; /* Make the images align in a row */
   transition: transform 0.5s ease; /* Smooth transition between slides */
+}
+
+.buttonTEST:hover {
+  background-color: pink !important;
 }

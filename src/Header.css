@@ -1,0 +1,74 @@
+.headerComponent {
+  display: flex;
+  justify-content: center;
+}
+
+.headerComponent .baseContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 2000px;
+
+  justify-content: space-between;
+  padding: 2rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background-color: pink;
+
+  height: "5rem";
+}
+
+.headerComponent .leftDiv {
+  display: flex;
+  justify-items: start;
+  background-color: yellow;
+}
+
+.headerComponent .centerDiv {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  min-width: 20rem;
+}
+
+.headerComponent .rightDiv {
+  display: flex;
+  justify-content: end;
+  background-color: yellow;
+}
+
+.headerComponent .dropdownDiv {
+  position: absolute;
+  z-index: 10;
+  background-color: lightcoral;
+  /* width: 10rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dropdownDiv .button {
+  padding: 1rem;
+  width: max-content;
+  text-align: start;
+}
+/* over 1024px*/
+@media (min-width: 1024px) {
+  .headerComponent .under1024px {
+    display: none;
+  }
+
+  .headerComponent .centerDiv {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .headerComponent .over1024px {
+    display: none;
+  }
+
+  .headerComponent .centerDiv {
+    font-size: 2rem;
+  }
+}

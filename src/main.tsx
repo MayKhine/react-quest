@@ -13,6 +13,8 @@ import { ImageCarousel } from "./quests/ImageCarousel.tsx"
 import { Timer } from "./quests/Timer.tsx"
 import { TrafficLight } from "./quests/TrafficLight.tsx"
 import { PendulumMockUp } from "./quests/PendulumMockUp.tsx"
+import { ButtonComponent } from "./quests/ButtonCompnent.tsx"
+import { HeaderComponent } from "./quests/HeaderComponent.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -27,6 +29,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/timer" element={<Timer />}></Route>
         <Route path="/trafficlight" element={<TrafficLight />}></Route>
         <Route path="/pendulummockup" element={<PendulumMockUp />}></Route>
+        <Route path="/buttoncomponent" element={<ButtonComponent />}></Route>
+        <Route path="/headercomponent" element={<HeaderComponent />}></Route>
 
         <Route path="/memo" element={<Memo />}></Route>
         <Route path="/reactsuspense" element={<ReactSuspense />}></Route>

@@ -72,6 +72,23 @@ export const App = () => {
         >
           Pendulum Mock Up
         </div>
+
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/buttoncomponent")
+          }}
+        >
+          Button Component
+        </div>
+        <div
+          className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
+          onClick={() => {
+            navigate("/headercomponent")
+          }}
+        >
+          Header Component
+        </div>
         <div
           className="bg-myLightBlue hover:bg-myLightBlue/80 w-60 h-30 rounded-md flex justify-center items-center cursor-pointer"
           onClick={() => {
